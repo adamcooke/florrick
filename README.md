@@ -1,4 +1,4 @@
-# Florric
+# Florrick
 
 This is a Rails library which integrates with Active Records and provides some 
 awesome user-initiated string interpolations for your web apps. For example, have
