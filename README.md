@@ -27,28 +27,33 @@ class User < ActiveRecord::Base
   
   belongs_to :country
   
-  # Provide access to the following fields. All fields must return either a String,
-  # Integer, Fixnum, Date or DateTime object.
-  string_interpolation :first_name, :last_name, :username, :full_name, :created_at
-  
-  # Provide access to the following belongs_to relationships. The models associated
-  # with these relationships must also specify their own string_interpolation definition
-  # as shown below.
-  string_interpolation_relationship :country
-  
-  # Provide access to a field with an alternative name (here we allow an underscore
-  # to be provided for usernames).
-  string_interpolation(:user_name) { username }
+  florrick do
+    # Provide access to the following fields. All fields must return either a String,
+    # Integer, Fixnum, Date or DateTime object.
+    string :first_name, :last_name, :username, :full_name, :created_at
+
+    # Provide access to the following belongs_to relationships. The models associated
+    # with these relationships must also specify their own florrick definitions
+    # as shown below.
+    relationship :country
+
+    # Provide access to a field with an alternative name (here we allow an underscore
+    # to be provided for usernames).
+    string(:user_name) { username }
+  end
   
   # Return the user's full name. This method is included above and any instance methods
   # on the model can be included.
   def full_name
     "#{first_name} #{last_name}"
   end
+  
 end
 
 class Country < ActiveRecord::Base
-  string_interpolation :name, :tld, :currency
+  florrick do
+    string :name, :tld, :currency
+  end
 end
 ```
 
