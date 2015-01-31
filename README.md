@@ -84,7 +84,7 @@ If at any point it cannot determine a value for a given interpolation, it will s
 
 This library also includes support for formatting of interpolated strings. For example:
 
-```
+```text
 Hello {{user.full_name.upcase}}, double your age is {{user.age.double}}!
 ```
 
