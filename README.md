@@ -13,7 +13,7 @@ and you registered from {{user.country.name}}. Many thanks. {{sender.name}}.
 ## Installation
 
 ```ruby
-gem 'florrick', '~> 1.0'
+gem 'florrick', '~> 1.1'
 ```
 
 ## Usage
