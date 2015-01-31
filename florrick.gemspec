@@ -10,4 +10,5 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.authors       = ["Adam Cooke"]
   s.email         = ["me@adamcooke.io"]
+  s.licenses      = ['MIT']
 end
