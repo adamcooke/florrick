@@ -74,7 +74,7 @@ However, you can add a fallback value to any object which will returned if the
 variable requested doesn't exist or a formatter (see below) is not suitable. This
 is achieved by simply adding your fallback string as shown below:
 
-```ruby
+```text
 You live in: {{user.country.name | unknown country}}
 ```
 
