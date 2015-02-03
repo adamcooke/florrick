@@ -108,9 +108,9 @@ Numerics
 Date/timestamps
 
 * `long_date` - Sunday 23rd October 1960
-* `long_date_without_day_name`
-* `short_date`
-* `short_date_without_day_name`
+* `long_date_without_day_name` - 23rd October 1960
+* `short_date` - Fri 30 Jan 2015
+* `short_date_without_day_name` - 30 Jan 2015
 * `ddmmyyyy` - 23/10/1960
 * `hhmm` - 14:52
 * `hhmmss` - 14:52:10
