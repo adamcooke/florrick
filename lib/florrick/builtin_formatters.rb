@@ -12,6 +12,7 @@ require 'digest/md5'
 Florrick::Formatter.add('downcase', [String]) { |s| s.downcase }
 Florrick::Formatter.add('upcase', [String]) { |s| s.upcase }
 Florrick::Formatter.add('humanize', [String]) { |s| s.humanize }
+Florrick::Formatter.add('capitalize', [String]) { |s| s.capitalize }
 Florrick::Formatter.add('strip', [String]) { |s| s.strip }
 Florrick::Formatter.add('sha1', [String]) { |s| Digest::SHA1.hexdigest(s) }
 Florrick::Formatter.add('md5', [String]) { |s| Digest::MD5.hexdigest(s) }

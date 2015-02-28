@@ -61,9 +61,9 @@ class StringInterpolationTest < Test::Unit::TestCase
     assert_equal "joe", Florrick.convert("{{user.first_name.downcase}}", :user => @user1)
     assert_equal "JOE", Florrick.convert("{{user.first_name.upcase}}", :user => @user1)
     assert_equal "Joe", Florrick.convert("{{user.first_name.downcase.humanize}}", :user => @user1)
+    assert_equal "Joe", Florrick.convert("{{user.first_name.downcase.capitalize}}", :user => @user1)
     assert_equal "89661149f1b62ff47dd5a6fe4f979c9f53f619b6", Florrick.convert("{{user.first_name.sha1}}", :user => @user1)
     assert_equal "3a368818b7341d48660e8dd6c5a77dbe", Florrick.convert("{{user.first_name.md5}}", :user => @user1)
-
   end
 
   def test_builtin_numeric_formatting
