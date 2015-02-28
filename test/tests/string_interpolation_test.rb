@@ -46,6 +46,7 @@ class StringInterpolationTest < Test::Unit::TestCase
     assert_equal "????", Florrick.convert("{{user.country.name | ????}}", :user => @user3)
     assert_equal "Bananas", Florrick.convert("{{garbage.upcase | Bananas}}", :user => @user1)
     assert_equal "Huh?", Florrick.convert("{{user.first_name.double | Huh?}}", :user => @user1)
+    assert_equal "None", Florrick.convert("{{user.food | None}}", :user => @user1)
   end
 
 
