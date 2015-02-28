@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
   florrick do
     # Provide access to the following fields. All fields must return either a String,
-    # Integer, Fixnum, Date or DateTime object.
+    # Integer, Fixnum, Array, Date or DateTime object.
     string :first_name, :last_name, :username, :full_name, :created_at
 
     # Provide access to the following belongs_to relationships. The models associated
@@ -104,6 +104,14 @@ Numerics
 
 * `double` - doubles the value
 * `triple` - triples the value
+
+Arrays
+
+* `join_with_commas` - joins all values of array with commas
+* `join_with_spaces` - joins all values of array with spaces
+* `join_with_new_lines` - joins all values of array with new lines
+* `to_sentence` - joins all values of array into a sentence
+* `as_list` - creates a "bulleted" list of all items
 
 Date/timestamps
 

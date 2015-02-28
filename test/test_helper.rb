@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   florrick do
     string :first_name, :last_name, :age, :date_of_birth, :time_of_birth, :place_of_birth
     string(:full_name) { "#{first_name} #{last_name}" }
+    string(:places) { ['London', 'Paris', 'New York', 'Poole'] }
     relationship :country
   end
 end

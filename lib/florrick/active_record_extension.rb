@@ -1,10 +1,10 @@
 module Florrick
   module ActiveRecordExtension
-    
+
     def self.included(base)
       base.extend ClassMethods
     end
-    
+
     def string_interpolation_value_for(var)
       if self.class.florrick_fields[:strings].keys.include?(var.to_sym)
         block = self.class.florrick_fields[:strings][var.to_sym]
@@ -17,7 +17,7 @@ module Florrick
         false
       end
     end
-    
+
     module ClassMethods
 
       #
@@ -26,7 +26,7 @@ module Florrick
       def florrick_fields
         @florrick_fields ||= {:strings => {}, :relationships =>{}}
       end
-      
+
       #
       # Accept a new set of configuration for this model
       #
@@ -35,21 +35,21 @@ module Florrick
         dsl.instance_eval(&block)
         dsl
       end
-      
+
       #
       # Return whether or not a given key can be replaced
       #
       def string_interpolation_for?(var)
         florrick_fields[:strings].keys.include?(var.to_sym)
       end
-      
+
       #
-      # Return whether or not a given relationship key can be replaced 
+      # Return whether or not a given relationship key can be replaced
       #
       def string_interpolation_relationship_for?(var)
         florrick_fields[:relationships].keys.include?(var.to_sym)
       end
     end
-    
+
   end
 end

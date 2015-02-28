@@ -1,7 +1,7 @@
 module Florrick
   class Builder
 
-    VALID_EXPORT_TYPES = [String, Numeric, Date, Time]
+    VALID_EXPORT_TYPES = [String, Numeric, Date, Time, Array]
 
     attr_reader :original_string, :objects
 
@@ -52,13 +52,19 @@ module Florrick
             # we're at the end now, if we can return the previous object, lets do it otherwise
             # we'll just return the string as we can't do anything.
             if VALID_EXPORT_TYPES.any? { |t| previous_object.is_a?(t)}
-              final_string = previous_object.to_s
+              final_string = previous_object
             else
               final_string = fallback_string || original_string
             end
           end
         end
-        final_string
+
+        case final_string
+        when Array
+          final_string.join(", ")
+        else
+          final_string.to_s
+        end
       end
     end
 

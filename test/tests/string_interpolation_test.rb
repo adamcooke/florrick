@@ -18,6 +18,15 @@ class StringInterpolationTest < Test::Unit::TestCase
     assert_equal "Sarah from Germany", Florrick.convert("{{user.first_name}} from {{user.country.name}}", :user => @user2)
   end
 
+  def test_arrays
+    assert_equal "London, Paris, New York, Poole", Florrick.convert("{{user.places.join_with_commas}}", :user => @user1)
+    assert_equal "London\nParis\nNew York\nPoole", Florrick.convert("{{user.places.join_with_new_lines}}", :user => @user1)
+    assert_equal "London Paris New York Poole", Florrick.convert("{{user.places.join_with_spaces}}", :user => @user1)
+    assert_equal "* London\n* Paris\n* New York\n* Poole", Florrick.convert("{{user.places.as_list}}", :user => @user1)
+    assert_equal "London, Paris, New York, and Poole", Florrick.convert("{{user.places.to_sentence}}", :user => @user1)
+    assert_equal "London, Paris, New York, Poole", Florrick.convert("{{user.places}}", :user => @user1)
+  end
+
   def test_custom_strings
     assert_equal "Joe Bloggs", Florrick.convert("{{user.full_name}}", :user => @user1)
   end

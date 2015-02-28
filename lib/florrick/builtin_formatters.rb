@@ -23,6 +23,15 @@ Florrick::Formatter.add('double', [Numeric]) { |s| s * 2 }
 Florrick::Formatter.add('triple', [Numeric]) { |s| s * 3 }
 
 #
+# Array formatters
+#
+Florrick::Formatter.add('join_with_commas', [Array]) { |a| a.join(', ')}
+Florrick::Formatter.add('join_with_spaces', [Array]) { |a| a.join(' ') }
+Florrick::Formatter.add('join_with_new_lines', [Array]) { |a| a.join("\n") }
+Florrick::Formatter.add('as_list', [Array]) { |a| a.map { |v| "* #{v}"}.join("\n") }
+Florrick::Formatter.add('to_sentence', [Array]) { |a| a.to_sentence }
+
+#
 # DateTime formatters
 #
 
