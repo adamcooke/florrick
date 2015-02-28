@@ -33,7 +33,9 @@ module Florrick
                 # we can do this easily
                 previous_object = previous_object.string_interpolation_value_for(var)
                 # if the previous object was nil, just set to the fallback string or empty
-                final_string = fallback_string || '' if previous_object.nil?
+                if previous_object.nil? || (previous_object.is_a?(Array) && previous_object.empty?)
+                  final_string = fallback_string || ''
+                end
               elsif previous_object.class.string_interpolation_relationship_for?(var)
                 # maybe we can do this on another object
                 previous_object = previous_object.send(var)

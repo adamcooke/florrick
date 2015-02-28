@@ -3,8 +3,8 @@ class StringInterpolationTest < Test::Unit::TestCase
   def setup
     @country1 = Country.create(:name => 'United Kingdom', :currency => 'GBP')
     @country2 = Country.create(:name => 'Germany', :currency => 'EUR')
-    @user1 = User.create(:first_name => 'Joe', :last_name => 'Bloggs', :age => 40, :fruit => 'Apple', :country => @country1, :date_of_birth => Date.parse("1960-10-23"), :time_of_birth => Time.parse('14:52:10'))
-    @user2 = User.create(:first_name => 'Sarah', :last_name => 'Smith', :age => 26, :fruit => 'Bananas', :country => @country2, :date_of_birth => Date.parse("1986-11-08"), :time_of_birth => Time.parse('05:30:00'))
+    @user1 = User.create(:first_name => 'Joe', :last_name => 'Bloggs', :age => 40, :fruit => 'Apple', :country => @country1, :date_of_birth => Date.parse("1960-10-23"), :time_of_birth => Time.parse('14:52:10'), :places => ['London', 'Paris', 'New York', 'Poole'])
+    @user2 = User.create(:first_name => 'Sarah', :last_name => 'Smith', :age => 26, :fruit => 'Bananas', :country => @country2, :date_of_birth => Date.parse("1986-11-08"), :time_of_birth => Time.parse('05:30:00'), :places => [])
     @user3 = User.create(:first_name => 'James', :last_name => 'Jones', :age => 5)
   end
 
@@ -47,6 +47,8 @@ class StringInterpolationTest < Test::Unit::TestCase
     assert_equal "Bananas", Florrick.convert("{{garbage.upcase | Bananas}}", :user => @user1)
     assert_equal "Huh?", Florrick.convert("{{user.first_name.double | Huh?}}", :user => @user1)
     assert_equal "None", Florrick.convert("{{user.food | None}}", :user => @user1)
+    assert_equal "All Places", Florrick.convert("{{user.places | All Places}}", :user => @user2) # has an empty test_arrays
+    assert_equal "All Places", Florrick.convert("{{user.places | All Places}}", :user => @user3) # has a nil places
   end
 
 
