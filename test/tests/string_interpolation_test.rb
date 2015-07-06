@@ -104,4 +104,9 @@ class StringInterpolationTest < Test::Unit::TestCase
     assert_equal "???", Florrick.convert("{{user.age.divideby0}}", :user => @user1)
   end
 
+  def test_that_parentheses_cant_be_used
+    # Regression test
+    assert_equal "{{(word)}}", Florrick.convert('{{(word)}}', :'(word)' => 'Hello')
+  end
+
 end

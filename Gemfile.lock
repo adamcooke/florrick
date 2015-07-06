@@ -23,7 +23,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.7.9)
     rake (10.1.0)
-    sqlite3 (1.3.7)
+    sqlite3 (1.3.10)
     test-unit (2.5.5)
     thread_safe (0.1.2)
       atomic
