@@ -14,7 +14,7 @@ module Florrick
       string = @original_string.dup
       string.gsub(/(\{\{\s*([\w+\.]+)(?>\ ?\|\ ?([\w\-\+\ \!\?\[\]\(\)]+))?\s*\}\})/) do
         original_string = $1
-        fallback_string = $3
+        fallback_string = $3 ? $3.strip : nil
         parts = $2.split('.')
         final_string = nil
         previous_object = @objects[parts.shift.to_sym]
