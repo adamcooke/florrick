@@ -109,4 +109,8 @@ class StringInterpolationTest < Test::Unit::TestCase
     assert_equal "{{(word)}}", Florrick.convert('{{(word)}}', :'(word)' => 'Hello')
   end
 
+  def test_spaces_in_variables
+    assert_equal "United Kingdom", Florrick.convert('{{ country.name }}', :country => @country1)
+  end
+
 end

@@ -12,7 +12,7 @@ module Florrick
 
     def output
       string = @original_string.dup
-      string.gsub(/(\{\{([\w+\.]+)(?>\ ?\|\ ?([\w\-\+\ \!\?\[\]\(\)]+))?\}\})/) do
+      string.gsub(/(\{\{\s*([\w+\.]+)(?>\ ?\|\ ?([\w\-\+\ \!\?\[\]\(\)]+))?\s*\}\})/) do
         original_string = $1
         fallback_string = $3
         parts = $2.split('.')
