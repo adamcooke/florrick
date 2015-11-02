@@ -114,4 +114,9 @@ class StringInterpolationTest < Test::Unit::TestCase
     assert_equal "No country", Florrick.convert("{{ user.country.name | No country }}", :user => @user3)
   end
 
+  def test_uppercase_in_variables
+    assert_equal "United Kingdom", Florrick.convert('{{ COUNTRY.NAME }}', :country => @country1)
+    assert_equal "No country", Florrick.convert("{{ USER.COUNTRY.NAME | No country }}", :user => @user3)
+  end
+
 end
